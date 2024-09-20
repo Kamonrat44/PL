@@ -1,0 +1,63 @@
+#include <iostream>
+
+class Animal {
+public:
+    Animal() {
+        std::cout << "create animal" << std::endl;
+    }
+
+    virtual ~Animal() { // destructor
+        std::cout << "delete animal" << std::endl;
+    }
+
+    virtual void sound() { // method sound
+        std::cout << "animal sound" << std::endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    Dog() {
+        std::cout << "dog" << std::endl;
+    }
+
+    ~Dog() { // destructor
+        std::cout << "delete dog" << std::endl;
+    }
+
+    void sound() override { // override method sound
+        std::cout << "dog barks" << std::endl;
+    }
+};
+
+class Cat : public Animal {
+public:
+    Cat() {
+        std::cout << "cat" << std::endl;
+    }
+
+    ~Cat() { // destructor
+        std::cout << "delete cat" << std::endl;
+    }
+
+    void sound() override { // override method sound
+        std::cout << "cat meows" << std::endl;
+    }
+};
+
+int main() {
+    Animal* a = new Animal(); // สร้าง object a ของ class Animal
+    Dog* d = new Dog();       // สร้าง object d ของ class Dog
+    Cat* c = new Cat();       // สร้าง object c ของ class Cat
+
+    // เรียกใช้ method sound
+    a->sound();
+    d->sound();
+    c->sound();
+
+    // ปล่อยหน่วยความจำ
+    delete a;
+    delete d;
+    delete c;
+    return 0;
+}
