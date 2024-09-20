@@ -1,0 +1,50 @@
+class Animal:
+    def __init__(self):
+        print("create animal")
+
+    def __del__(self):
+        print("delete animal")
+
+    def sound(self):
+        print("animal sound")
+
+class Dog(Animal):
+    def __init__(self):
+        super().__init__()
+        print("dog")
+
+    def __del__(self):
+        print("delete dog")
+        super().__del__()
+
+    def sound(self):
+        print("dog barks")
+
+class Cat(Animal):
+    def __init__(self):
+        super().__init__()
+        print("cat")
+
+    def __del__(self):
+        print("delete cat")
+        super().__del__()
+
+    def sound(self):
+        print("cat meows")
+
+# สร้าง object a ของ class Animal
+a = Animal()
+# สร้าง object d ของ class Dog
+d = Dog()
+# สร้าง object c ของ class Cat
+c = Cat()
+
+# เรียกใช้ method sound
+a.sound()
+d.sound()
+c.sound()
+
+# ปล่อยหน่วยความจำ
+del a
+del d
+del c
