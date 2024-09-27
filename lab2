@@ -1,0 +1,48 @@
+#lang racket
+"ข้อ 1";
+(define (sphere radius)
+  (* (/ 4 3) pi (expt radius 3)))
+(sphere 5)
+"ข้อ 2";
+(define (triangle w h) 
+    (* 0.5 w h) 
+)
+(triangle 20 4)
+"ข้อ 3";
+(define (grade score)
+  (cond
+    [(< score 40) 'F]
+    [(and (>= score 40) (< score 80)) 'P]
+    [(>= score 80) 'G]
+    [else 'Invalid]))
+(grade 50)
+"ข้อ 4";
+(define (second number)
+  (modulo (quotient number 10) 10))
+(second 1234)  
+"ข้อ 5";
+(define (each number)
+  (if (< number 10)
+      number
+      (* (modulo number 10) (each (quotient number 10)))))
+(each 1234)
+
+"โจทย์เกี่ยวกับลิสต์";
+"ข้อ 1";
+(define re-list (reverse (list 1 2 3 4)))
+(displayln re-list) 
+"ข้อ 2";
+(require racket/list)
+(permutations '(1 2 3))
+"ข้อ 3"
+(define (last lst)
+  (if (null? (cdr lst))
+      (car lst)     
+      (last (cdr lst)))) 
+(last '(a b c d))  
+"ข้อ 4"
+(define (removelast lst)
+  (if (null? (cdr lst))
+      '() ;     
+      (cons (car lst)(removelast (cdr lst))))) 
+(removelast '(a b c d)) 
